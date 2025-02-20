@@ -1,0 +1,31 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
+import 'package:hospital_app_frontend/patientView/Services/others/alert.dart';
+import 'package:hospital_app_frontend/patientView/Services/others/baseUrl.dart';
+import 'package:hospital_app_frontend/patientView/Services/others/dataProvider.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
+import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
+
+Future getReportPatient(String pID, BuildContext context) async {
+  final url = Uri.parse('${baseUrl()}/api/report/getReportPatient/$pID');
+  final token = context.read<dataProvider>().Token;
+  final tokenDecoded = JwtDecoder.decode(token);
+
+  final data = await http.get(url, headers: {
+    'Content-Type': 'application/json',
+    'uid': tokenDecoded['user_id'],
+    'x-access-token': token.toString(),
+  });
+
+  if (data.statusCode == 200) {
+    final decode = json.decode(data.body);
+
+    return decode;
+  } else {
+    showAlertDialog(context, 'No Report Available,\n${data.body}');
+    return [];
+  }
+}
