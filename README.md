@@ -1,50 +1,91 @@
-# Hospital_System_Frontend
- 
-#Read Me 
 
-Front end
-The front end was written using Flutter,
-Folder Name: hospital_app_frontend
+# 🏥 Hospital Image Management System - Frontend (Flutter)
 
-Dart installation is required and flutter as well as vsCode  
+This repository contains the frontend of the Hospital Image Management System (IMS), developed using Flutter. It serves as the mobile application interface for patients and medical staff to interact with the backend services.
 
-There are 4 different views
-1-Patient 
-2-Doctor
-3-Accountant 
-4-Admin
+---
 
-Patient 
-The patientView folder is divided into folders 
+## 📌 Project Overview
 
-Screens which contain all the user interfaces for the patient 
-Services which contain all the functions that make the application operable 
+This application is part of a larger cloud-based, service-oriented system aimed at modernizing ABC Healthcare Group’s IT infrastructure. It provides user-friendly mobile interfaces for the following functionalities:
 
-The screens folder is divided into Auth for all the interfaces related to logging in and signing up. Financial for the payments of the patient. Profile for the user profile and show case the information of the user. Home which is the main screen of the patient that show case the diagnosis and Report to show case all the reports generated for the patient.
+- Patient and staff account management
+- Upload and viewing of medical images (MRI, CT, X-ray)
+- Diagnostic report handling
+- Cost calculation and patient billing details
+- Secure login for different roles (patients, radiologists, doctors)
 
-The services is divided into Auth for the authentication functionalities, diagnosisServices for getting the diagnosis for the patient, finentialSevices to fetch all the payment records of the patient and others is for other services including the main color of the app data provider which is the state management used in the app.
+---
 
-Doctor
-Screens which contain all the user interfaces for the Doctor 
-Services which contain all the functions that make the application operable 
+## 🚀 Features
 
-Screen has Diagnosis which contain the UI of uploading the diagnosis and showcasing it to the doctor as well as generating the report. Home is the home page for the doctors where they select the function they want to do. Patient to get the patient information. Report used to search and show the reports generated.
+- 🧑‍⚕️ Role-based user authentication
+- 📷 Image upload and classification (MRI, CT, X-ray)
+- 📝 Diagnostic reports with timestamps
+- 💰 Cost tracking per patient
+- 🔒 Secure access and data privacy
 
-Services include DiagnosisServices which is responsible for uploading image to google cloud server and create the diagnosis as well as fetching it. ReportServices used to generate and upload the report to the google cloud server. userServices are used get patient data to show it to doctors.
+---
 
-Admin View
+## 📂 Folder Structure
 
- Screens which contain all the user interfaces for the Admin 
-Services which contain all the functions that make the application operable 
+```
+hospital_app_frontend/
+├── lib/
+│   ├── screens/
+│   ├── services/
+│   ├── models/
+│   └── main.dart
+├── assets/
+├── pubspec.yaml
+└── README.md
+```
 
-Screen contains Home which is the main interface to the admin 
-Services contains deleting a user and updating the account type.
+---
 
-Accountant view
+## 🧑‍💻 Technologies Used
 
-Screens which contain all the user interfaces for the accountant
-Services which contain all the functions that make the application operable 
+- **Flutter**: UI toolkit for building natively compiled mobile applications.
+- **Dart**: Programming language for Flutter apps.
+- **HTTP**: For communication with backend APIs.
+- **Provider**: For state management.
 
-Screens contains Home which is the main interface for the accountant and payments which show case the transaction history where he can mark a payment as paid.
+---
 
-Services has three functions getting the payments, getting the user and changing the state of the transaction.
+## ⚙️ Setup Instructions
+
+1. **Prerequisites**
+   - Flutter SDK installed
+   - Android Studio or VS Code
+   - A connected device or emulator
+
+2. **Clone the Repository**
+   ```bash
+   git clone https://github.com/your-org/hospital_app_frontend.git
+   cd hospital_app_frontend
+   ```
+
+3. **Install Dependencies**
+   ```bash
+   flutter pub get
+   ```
+
+4. **Run the App**
+   ```bash
+   flutter run
+   ```
+
+> **Note:** Make sure the backend (`HospitalSystem`) is running and accessible for full functionality.
+
+---
+
+## 📡 Backend Integration
+
+This app communicates with the Node.js backend via REST APIs for operations such as:
+
+- Authentication
+- Patient and staff management
+- Image upload metadata
+- Diagnostic report handling
+
+---
